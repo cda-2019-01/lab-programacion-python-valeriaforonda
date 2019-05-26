@@ -4,6 +4,29 @@
 ## tupla es una lista con las letras (ordenadas y sin repetir letra) 
 ## de la primera  columna que aparecen asociadas a dicho valor de la 
 ## segunda columna. Esto es:
+x = open('data.csv','r').readlines() #Leo el archivo
+x = [z.replace('\n', '') for z in x] #Reemplazo retornos de carro por vacíos
+x = [z.split('\t') for z in x] #Se separan donde esté una separación
+a = list([(z[4]) for z in x[0:]])
+h = ",".join(a)
+j = h.split(',')
+k = [(z[1]) for z in x[0:]]
+e = list([(z[0]) for z in x[0:]])
+f = set(k)
+d = list(f)
+d.sort()
+lenb = len(e)
+lend = len(d)
+import numpy as np
+for i in range(0,lend):
+    y=[]
+    for j in range(0,lenb):
+        if k[j] == d[i]:
+            y.append(e[j])
+            w=list(set(y))
+            w.sort()
+    u = d[i],w
+    print(u)
 ##
 ## ('0', ['C'])
 ## ('1', ['A', 'B', 'D', 'E'])
